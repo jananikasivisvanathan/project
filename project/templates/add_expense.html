@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            width: 40%;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+        }
+
+        label {
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
+
+        input, select {
+            padding: 8px;
+            font-size: 1rem;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Add Expense</h1>
+
+    <div class="form-container">
+        <form method="POST">
+            <div>
+                <label for="name">Expense Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" step="1" min="0"  required><br><br>
+
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Other">Other</option>
+                </select><br><br>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required><br><br>
+
+                <button type="submit">Add Expense</button>
+            </div>
+        </form>
+
+        <a href="{{ url_for('home') }}" class="back-link">Back to Home</a>
+    </div>
+
+</body>
+</html>
