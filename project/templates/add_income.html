@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Income</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            text-align: left;
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-btn {
+            background-color: #6c757d;
+        }
+
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Add New Income</h1>
+
+    <div class="form-container">
+        <form method="POST">
+            <label for="income_name">Income Name:</label>
+            <input type="text" id="income_name" name="income_name" required>
+
+            <label for="income_amount">Amount:</label>
+            <input type="number" id="income_amount" name="income_amount" step="1" min="0" required>
+
+            <label for="income_category">Category:</label>
+            <select id="income_category" name="income_category">
+                <option value="Salary">Salary</option>
+                <option value="Freelancing">Freelancing</option>
+                <option value="Investments">Investments</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <button type="submit">Add Income</button>
+        </form>
+
+        <a href="{{ url_for('home') }}">
+            <button class="back-btn">Back to Home</button>
+        </a>
+    </div>
+
+</body>
+</html>

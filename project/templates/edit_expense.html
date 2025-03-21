@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Expense</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            text-align: left;
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-container input,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-btn {
+            background-color: #6c757d;
+        }
+
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Edit Expense</h1>
+
+    <div class="form-container">
+        <form method="POST">
+            <label for="name">Expense Name:</label>
+            <input type="text" id="name" name="name" value="{{ expense['name'] }}" required>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" value="{{ expense['amount'] }}" required>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" value="{{ expense['category'] }}" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="{{ expense['date'] }}" required>
+
+            <button type="submit">Save Changes</button>
+        </form>
+
+        <a href="{{ url_for('home') }}">
+            <button class="back-btn">Back to Home</button>
+        </a>
+    </div>
+
+</body>
+</html>

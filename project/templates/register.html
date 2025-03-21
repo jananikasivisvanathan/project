@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Centered registration form container -->
+    <div class="form-container">
+        <h2>Create a New Account</h2>
+
+        <!-- Flash messages for errors or success -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-message">
+                    {% for category, message in messages %}
+                        <p class="{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Registration form -->
+        <form action="/register" method="POST">
+            <!-- Username field -->
+            <input type="text" name="username" placeholder="Username" required>
+
+            <!-- Password field -->
+            <input type="password" name="password" placeholder="Password" required>
+
+            <!-- Confirm Password field -->
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+            <!-- Submit button -->
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- Link to login page if the user already has an account -->
+        <p>Already have an account? <a href="/login">Login here</a></p>
+    </div>
+
+</body>
+</html>
